@@ -160,6 +160,58 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 48px;display:fl
 .footer-links a{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--silver);text-decoration:none;transition:color 0.2s;}
 .footer-links a:hover{color:var(--gold);}
 .hidden{display:none!important;}
+
+/* ── RESPONSIVE MEDIA QUERIES (BOOKING) ── */
+
+  /* Tablet (Landscape & Portrait) */
+  @media (max-width: 1024px) {
+    .calendar-section { grid-template-columns: 1fr; gap: 40px; }
+    .slots-grid { grid-template-columns: repeat(4, 1fr); max-height: none; }
+  }
+
+  /* Mobile (Landscape & Portrait) */
+  @media (max-width: 768px) {
+    /* Header & Nav */
+    nav { padding: 16px 24px; }
+    .page-header { padding: 100px 24px 40px; }
+    .page-header h1 { font-size: 36px; }
+    
+    /* Stepper */
+    .stepper-wrap { padding: 20px 16px; }
+    .step-item:not(:last-child)::after { left: calc(50% + 15px); right: calc(-50% + 15px); }
+    .step-label { font-size: 8px; letter-spacing: 1px; }
+    
+    /* Forms & Layout */
+    .form-outer { padding: 32px 16px 60px; }
+    .panel-header { padding: 24px; flex-direction: column; align-items: flex-start; gap: 12px; }
+    .panel-body { padding: 24px; }
+    .field-row.cols-2 { grid-template-columns: 1fr; gap: 20px; }
+    .radio-group { grid-template-columns: 1fr; }
+    
+    /* Calendar & Slots */
+    .slots-grid { grid-template-columns: repeat(3, 1fr); }
+    
+    /* Summary Grid */
+    .summary-grid { grid-template-columns: 1fr; }
+    .summary-item.full { grid-column: span 1; }
+    
+    /* Buttons */
+    .btn-row { flex-direction: column-reverse; gap: 12px; align-items: stretch; margin-top: 20px; }
+    .btn-back, .btn-next { width: 100%; text-align: center; padding: 16px; }
+    
+    /* Footer */
+    .page-footer { flex-direction: column; gap: 20px; padding: 24px; text-align: center; }
+    .footer-links { flex-wrap: wrap; justify-content: center; gap: 16px; }
+  }
+
+  /* Small Mobile (iPhone SE size) */
+  @media (max-width: 480px) {
+    .slots-grid { grid-template-columns: repeat(2, 1fr); }
+    /* Hide stepper labels on very small screens to prevent overlap, keep circles centered */
+    .step-label { display: none; }
+    .step-item:not(:last-child)::after { top: 18px; left: 50%; right: -50%; }
+    .success-wrap h2 { font-size: 28px; }
+  }  
 </style>
 </head>
 
